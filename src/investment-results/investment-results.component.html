@@ -1,0 +1,25 @@
+<p style="text-align: center;" *ngIf="!results;else elseBlock">Please enter some values and click on "CALCULATE" </p>
+<ng-template #elseBlock>
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Investment Value</th>
+                <th>Interest (Year)</th>
+                <th>Total Interest</th>
+                <th>Invested Capital</th>
+                <th>Total Amount Invested</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let x of results ">
+            <tr>
+                <td>{{x.year }}</td>
+                <td>{{x.interest | currency:"INR"}} </td>
+                <td>{{x.valueEndOfYear | currency:"INR"}}</td>
+                <td>{{x.annualInvestment | currency:"INR"}} </td>
+                <td>{{x.totalInterest | currency:"INR"}}</td>
+                <td>{{x.totalAmountInvested | currency:"INR"}} </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
